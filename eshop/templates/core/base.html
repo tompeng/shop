@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title_tag %}{% block page_title %}Index{% endblock %} - Asa's Shop{% endblock %}</title>
+{% static "css/bootstrap.css" %}
+
+</head>
+<body>
+{% block body_tag %}
+{% endblock %}
+</body>
+</html>
