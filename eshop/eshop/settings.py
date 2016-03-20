@@ -119,6 +119,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
+MEDIA_ROOT = '/media/'
+
 # After spending more than an hour debugging, I finally learned that import has changed in python3
 # http://stackoverflow.com/questions/12172791/changes-in-import-statement-python3
 from .local_settings import *

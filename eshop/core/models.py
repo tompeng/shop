@@ -30,20 +30,20 @@ class Product(models.Model):
 	product_status = models.IntegerField(choices=PRODUCT_STATUS_CHOICES, default=PRODUCT_STATUS_ACTIVE, db_index=True)
 
 	product_date_added = models.DateTimeField(auto_now_add=True)
-	product_last_modified = models.DateTimeField(auto_now=True, blank=True)
-	product_data_available = models.DateTimeField(blank=True)
+	product_last_modified = models.DateTimeField(auto_now=True, blank=True, null=True)
+	product_date_available = models.DateTimeField(blank=True, null=True)
 
 	# product_type =
-	product_quantity = models.FloatField(blank=True)
+	product_quantity = models.FloatField(blank=True, null=True)
 	# product_model =
-	product_image = models.CharField(blank=True)
+	product_image = models.ImageField(blank=True, upload_to='images/product_images/')
 	product_price = models.DecimalField(max_digits=10, decimal_places=4, default=0)
 	product_is_virtual = models.BooleanField(default=False)
-	product_weight = models.DecimalField(blank=True, max_digits=10, decimal_places=2)
+	product_weight = models.DecimalField(blank=True, max_digits=10, decimal_places=2, null=True)
 	product_tax_class = models.BooleanField(default=True)  # Note: the actual tax is far more complicated than this
 	product_ordered_count = models.IntegerField(default=0, editable=False)
-	product_quantity_order_min = models.FloatField(blank=True)
-	product_quantity_order_units = models.FloatField(blank=True)
+	product_quantity_order_min = models.FloatField(blank=True, null=True)
+	product_quantity_order_units = models.FloatField(blank=True, null=True)
 	product_is_free = models.BooleanField(default=False)
 	product_quantity_order_max = models.FloatField(default=0)
 	product_sort_order = models.IntegerField(default=0)
