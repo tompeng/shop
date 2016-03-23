@@ -86,3 +86,10 @@ class Category(models.Model):
 	status = models.BooleanField(default=1)
 
 
+class ProductCategory(models.Model):
+
+	product = models.ForeignKey('Product')
+	category = models.ForeignKey('Category')
+
+	class Meta:
+		unique_together = (('product','category'),)
