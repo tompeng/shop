@@ -93,3 +93,11 @@ class ProductCategory(models.Model):
 
 	class Meta:
 		unique_together = (('product','category'),)
+
+
+class Review(models.Model):
+
+	product = models.ForeignKey('Product')
+	text = models.TextField()
+
+	
