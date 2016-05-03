@@ -5,5 +5,5 @@ from django.http import HttpResponse
 
 
 def index(request):
-	return render(request, 'core/base.html')
+	return render(request, 'core/shop.html')
 

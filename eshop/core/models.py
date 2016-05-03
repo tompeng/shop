@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -73,6 +74,9 @@ class Product(models.Model):
 	# categories_id =
 	# language_id =
 
+	def __str__(self):
+		return self.name
+
 
 class Category(models.Model):
 
@@ -100,4 +104,8 @@ class Review(models.Model):
 	product = models.ForeignKey('Product')
 	text = models.TextField()
 
-	
+
+class UserProfile(models.Model):
+
+	user = models.OneToOneField(User, on_delete=models.CASCADE)
+	is_store_staff = models.BooleanField(default=False)
